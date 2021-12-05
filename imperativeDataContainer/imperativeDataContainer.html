@@ -1,0 +1,42 @@
+<template>
+    <lightning-card title="Top 10 Contacts in the org">
+        <table>
+            <tr>
+                <th>LastName</th>
+                <th>Phone</th>
+                <th>Mail</th>
+            </tr>
+            <template for:each={firstHalf} for:item="contact" for:index="idx">
+                <tr key={contact.id}>
+                    <td>{contact.LastName}</td>
+                    <td>{contact.Phone}</td>
+                    <td>{contact.Email}</td>
+                    <td>
+                        <lightning-button label="Edit"  name="firHalf" data-index={idx} data-record-id={contact.Id} onclick={ctrlEdit}></lightning-button> 
+                        <lightning-button label="Delete" name="firHalf" data-index={idx} data-record-id={contact.Id} onclick={ctrlDelete}></lightning-button> 
+                    </td>
+                </tr>
+            </template>
+            <template if:true={edit}>
+                    <td> <lightning-input  name="LastName" onchange={changed} value={EditName}    ></lightning-input></td>
+                    <td> <lightning-input  name="Phone"    onchange={changed} value={EditPhone}   ></lightning-input></td>
+                    <td> <lightning-input  name="Email"    onchange={changed} value={EditEmail}   ></lightning-input></td>
+                    <td>
+                        <lightning-button label="Save" data-index={idx} data-record-id={EdittingId} onclick={ctrlSave}></lightning-button> 
+                    </td>
+            </template>
+            <template if:true={secondHalf} for:each={secondHalf} for:item="contact" for:index="idx">
+                <tr key={contact.id}>
+                    <td>{contact.LastName}</td>
+                    <td>{contact.Phone}</td>
+                    <td>{contact.Email}</td>
+                    <td>
+                        <lightning-button label="Edit" name="secHalf"  data-index={idx} data-record-id={contact.Id} onclick={ctrlEdit}></lightning-button> 
+                        <lightning-button label="Delete" name="secHalf" data-index={idx} data-record-id={contact.Id} onclick={ctrlDelete}></lightning-button> 
+                    </td>
+                </tr>
+            </template>            
+        </table> 
+    </lightning-card>
+   
+</template>
