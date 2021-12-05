@@ -2,9 +2,9 @@ import {
     LightningElement,
     track
 } from 'lwc';
-import getData from '@salesforce/apex/OrgData.getData';
-import updateRecord from '@salesforce/apex/OrgData.updateRecord';
-import DeleteRecord from '@salesforce/apex/OrgData.DeleteRecord';
+import getData from '@salesforce/apex/OrgData.getData';//own apex method
+import updateRecord from '@salesforce/apex/OrgData.updateRecord';//own apex method
+import DeleteRecord from '@salesforce/apex/OrgData.DeleteRecord';//own apex method
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 export default class ImperativeDataContainer extends LightningElement {
     @track firstHalf;
